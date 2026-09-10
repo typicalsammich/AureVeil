@@ -47,7 +47,7 @@ html[data-theme='dark'] .border-black{border-color:var(--ink)!important}
 html[data-theme='dark'] .bg-black{background-color:var(--ink)!important;color:var(--paper)!important}
 html[data-theme='dark'] .bg-\[\#171717\]{background-color:var(--ink)!important;color:var(--paper)!important}
 html[data-theme='dark'] .bg-\[\#e7e4dd\],html[data-theme='dark'] .bg-\[\#d8d2c6\],html[data-theme='dark'] .bg-\[\#ddd9d1\],html[data-theme='dark'] .bg-\[\#bdb9b2\]{background-color:var(--paper-2)!important}
-input,textarea,select{transition:background .3s ease,border-color .2s ease;color .3s ease}
+input,textarea,select{transition:background .3s ease,border-color .2s ease,color .3s ease}
 /* Shared polish across secondary pages */
 main button,main a{transition:transform .2s ease,background-color .2s ease,border-color .2s ease,color .2s ease,box-shadow .2s ease}
 main button:not(:disabled):hover{transform:translateY(-1px)}
