@@ -1,21 +1,36 @@
 'use client';
 
-import { Moon, Sun } from 'lucide-react';
+import { Moon, Sparkles } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export function ThemeToggle(){
-  const [dark,setDark]=useState(false);
+  const [mode,setMode]=useState<'angel'|'demon'>('demon');
+
   useEffect(()=>{
-    const current=document.documentElement.dataset.theme==='dark';
-    setDark(current);
+    const isDark=document.documentElement.dataset.theme==='dark';
+    setMode(isDark?'demon':'angel');
   },[]);
+
   function toggle(){
-    const next=!dark;
-    setDark(next);
-    document.documentElement.dataset.theme=next?'dark':'light';
-    localStorage.setItem('musefold-theme',next?'dark':'light');
+    const next=mode==='demon'?'angel':'demon';
+    setMode(next);
+    document.documentElement.dataset.theme=next==='demon'?'dark':'light';
+    localStorage.setItem('musefold-theme',next==='demon'?'dark':'light');
   }
-  return <button onClick={toggle} className="theme-toggle" aria-label={dark?'Switch to day mode':'Switch to night mode'} title={dark?'Day mode':'Night mode'}>
-    <span className="theme-toggle__track"><Sun size={14}/><Moon size={14}/><span className="theme-toggle__knob"/></span>
-  </button>;
+
+  const isDemon=mode==='demon';
+  return (
+    <button
+      onClick={toggle}
+      className={`theme-toggle theme-toggle--${mode}`}
+      aria-label={isDemon?'Switch to Angel mode':'Switch to Demon mode'}
+      title={isDemon?'Switch to Angel':'Switch to Demon'}
+      type="button"
+    >
+      <span className="theme-toggle__label">
+        {isDemon ? <Moon size={15}/> : <Sparkles size={15}/>}
+        <strong>{isDemon?'Demon':'Angel'}</strong>
+      </span>
+    </button>
+  );
 }

@@ -42,9 +42,18 @@ export default function Home(){
 
       <div className="exact-collage">
         <span className="exact-note note-left">GOOD<br/>ART<br/>BETTER<br/>PEOPLE</span>
-        <Link href="/art/quiet-current" className="exact-card card-left"><img src="/demo/hero-left.jpg" alt="Colorful portrait artwork"/></Link>
-        <Link href="/art/soft-machines" className="exact-card card-center"><img src="/demo/hero-center.jpg" alt="Colorful portrait artwork"/></Link>
-        <Link href="/art/signal-bloom" className="exact-card card-right"><img src="/demo/hero-right.jpg" alt="Colorful sculpture artwork"/></Link>
+        <Link href="/art/quiet-current" className="exact-card card-left">
+          <img className="mode-image mode-image-dark" src="/demo/hero-left.jpg" alt="Bold portrait artwork"/>
+          <img className="mode-image mode-image-light" src="/demo/art-3.jpg" alt="Dreamy pastel landscape artwork"/>
+        </Link>
+        <Link href="/art/soft-machines" className="exact-card card-center">
+          <img className="mode-image mode-image-dark" src="/demo/hero-center.jpg" alt="Colorful portrait artwork"/>
+          <img className="mode-image mode-image-light" src="/demo/art-1.jpg" alt="Soft expressive artwork"/>
+        </Link>
+        <Link href="/art/signal-bloom" className="exact-card card-right">
+          <img className="mode-image mode-image-dark" src="/demo/hero-right.jpg" alt="Colorful sculpture artwork"/>
+          <img className="mode-image mode-image-light" src="/demo/path-collector.jpg" alt="Calm collector-focused artwork"/>
+        </Link>
         <span className="exact-note note-right"><b>⌄</b> ART<br/>CHANGES<br/>EVERYTHING</span>
         <span className="exact-note note-far">SAME<br/>HUMAN<br/>DIFFERENT<br/>CANVAS</span>
       </div>
