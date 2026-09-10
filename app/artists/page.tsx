@@ -1,0 +1,3 @@
+import Link from 'next/link';
+import { artworks } from '@/lib/demo-data';
+export default function Artists(){const seen=new Set<string>(); const artists=artworks.filter(a=>{if(seen.has(a.username))return false;seen.add(a.username);return true});return <div className="shell mf-simple-page"><span className="mf-section-kicker">CREATORS</span><h1>Artists worth getting lost in.</h1><div className="mf-artist-grid">{artists.map(a=><Link href={`/@${a.username}`} className="mf-artist-card" key={a.username}><img src={a.image} alt=""/><div><h2>{a.artist}</h2><p>@{a.username} · {a.category}</p></div></Link>)}</div></div>}

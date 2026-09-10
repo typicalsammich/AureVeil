@@ -1,0 +1,3 @@
+'use client';
+import { useState } from 'react';
+export function ResetTasteButton(){const [state,setState]=useState<'idle'|'busy'|'done'|'error'>('idle');return <div><button disabled={state==='busy'} onClick={async()=>{if(!confirm('Clear your AureVeil search and recommendation history? Your saved artwork and follows will not be deleted.'))return;setState('busy');const r=await fetch('/api/recommendations/reset',{method:'DELETE'});setState(r.ok?'done':'error')}} className="border hairline bg-white px-4 py-2 text-sm disabled:opacity-50">{state==='busy'?'Clearing…':state==='done'?'History cleared':'Clear discovery history'}</button>{state==='error'&&<p className="text-xs mt-2 muted">Could not clear history. Make sure you are signed in and Supabase is connected.</p>}</div>}

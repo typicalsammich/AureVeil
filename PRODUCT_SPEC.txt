@@ -1,0 +1,1996 @@
+Build a complete, production-quality full-stack web application for an art discovery, inspiration, and marketplace platform.
+
+The core idea:
+
+Users can upload artwork, photography, illustrations, tattoo designs, paintings, digital art, concept art, sketches, graphic design, 3D artwork, etc. Other users can browse the platform to discover art, find artists with similar styles, save inspiration, commission artists, or purchase artwork.
+
+Think of the discovery behavior of Pinterest, the creator/shop functionality of Etsy, the portfolio aspect of Behance/ArtStation, and modern social discovery platforms, but DO NOT copy the visual design of any of those websites.
+
+The product should feel like its own polished startup.
+
+A major feature is AI-assisted visual discovery. A user should eventually be able to upload an image or select existing artwork and find artwork or artists with a similar visual style.
+
+Users should also receive personalized recommendations based on artwork, styles, subjects, colors, artists, and categories they interact with.
+
+This MUST be a functional full-stack application. Do not create fake buttons, fake account systems, fake checkout pages, or UI elements that do nothing.
+
+==================================================
+OVERALL DESIGN DIRECTION
+==================================================
+
+The website should look like it was designed by a very good human product designer in 2026.
+
+Do NOT make it look like a generic AI-generated SaaS website.
+
+Avoid:
+- giant gradient hero sections
+- glowing blobs
+- excessive rounded cards
+- random floating glassmorphism elements
+- huge amounts of empty space
+- generic icon + title + paragraph feature grids
+- excessive gradients
+- overly rounded pill buttons everywhere
+- fake statistics
+- generic AI-generated marketing copy
+- endless boxes inside boxes
+- overly symmetrical layouts
+- every section having the exact same structure
+- purple/blue AI startup styling
+- excessive drop shadows
+- unnecessary animations
+- emojis as interface icons
+
+The actual artwork should be the visual focus.
+
+Use a sophisticated neutral design system.
+
+Suggested aesthetic:
+- warm white / very light gray primary background
+- near-black text
+- dark navigation elements
+- subtle borders
+- restrained accent color
+- artwork provides most of the color
+- premium typography
+- strong editorial layout
+- clean spacing
+- highly polished hover states
+- subtle motion only where appropriate
+
+The interface should feel like a combination of an editorial art magazine, creative portfolio site, and modern marketplace.
+
+Desktop and mobile layouts must both feel intentionally designed.
+
+Use responsive breakpoints instead of simply shrinking the desktop design.
+
+Mobile navigation should be clean and native-feeling.
+
+Do not use a custom circle cursor.
+
+Use a normal cursor.
+
+==================================================
+BRANDING
+==================================================
+
+Create a temporary original brand name and identity for the platform.
+
+The brand should sound modern, memorable, creative, and legitimate.
+
+Do not use an obviously AI-related name.
+
+Create:
+- text logo
+- simple icon/mark
+- favicon
+- wordmark treatment
+- basic brand system
+
+Make it easy to rename later using one central configuration file.
+
+==================================================
+TECH STACK
+==================================================
+
+Build this as a real full-stack application.
+
+Preferred stack:
+
+Frontend:
+- Next.js latest stable version
+- TypeScript
+- React
+- Tailwind CSS
+- reusable component architecture
+
+Backend:
+- Next.js server actions / API routes where appropriate
+- Supabase
+
+Supabase should handle:
+- PostgreSQL database
+- authentication
+- row-level security
+- file storage
+- user profiles
+- artwork records
+- comments
+- likes
+- follows
+- saved collections
+- orders
+- commissions
+- messages
+- wallet ledger
+- notifications
+
+Payments:
+- Stripe
+
+Use Stripe for:
+- adding funds
+- purchasing artwork
+- commissions
+- paid promotion
+- seller payouts if Stripe Connect is configured
+
+Do NOT directly store credit card information.
+
+Use Stripe Checkout, Payment Elements, or another PCI-compliant Stripe implementation.
+
+If Stripe API keys are not available during initial development, implement Stripe in sandbox/test mode with clear environment variables and functional test-mode payment flows.
+
+Never fake a completed payment.
+
+Create a proper .env.example.
+
+The project should be deployable to Vercel.
+
+==================================================
+AUTHENTICATION
+==================================================
+
+Build a complete account system.
+
+Users must be able to:
+- create an account
+- log in
+- log out
+- remain signed in
+- reset their password
+- change their password
+- verify email
+- edit account details
+- upload/change profile picture
+- change username
+- change display name
+- add biography
+- select location
+- add website
+- add Instagram link
+- add other social links
+- delete their account
+- manage privacy settings
+
+Support:
+- email/password authentication
+- Google authentication if Supabase OAuth environment variables are configured
+
+Username URLs should work like:
+
+/@username
+
+Profiles should be publicly viewable unless privacy settings specify otherwise.
+
+==================================================
+ACCOUNT TYPES
+==================================================
+
+Do not force completely separate account types.
+
+Any normal user can browse and save artwork.
+
+A user can activate Creator Mode to become an artist/seller.
+
+Creator Mode should unlock:
+- artwork uploads
+- portfolio management
+- pricing
+- commissions
+- store
+- analytics
+- payouts
+- promotional tools
+
+This reduces onboarding friction.
+
+==================================================
+ONBOARDING
+==================================================
+
+After signup, create an attractive onboarding process.
+
+Ask users what they are interested in.
+
+Examples:
+Digital Art
+Fine Art
+Tattoo Art
+Illustration
+Photography
+Anime/Manga
+Surrealism
+Abstract
+Traditional Art
+Street Art
+Character Design
+Concept Art
+Graphic Design
+Architecture
+Fashion
+Nature
+Portraits
+Dark Art
+Minimalism
+3D
+Pixel Art
+Typography
+
+Allow multiple selections.
+
+Then ask whether they are primarily interested in:
+- discovering inspiration
+- buying artwork
+- finding artists
+- tattoo inspiration
+- selling their work
+- accepting commissions
+
+Use this information to populate their initial recommendation feed.
+
+Do not make onboarding mandatory beyond what is required to establish the account.
+
+==================================================
+HOME / DISCOVERY EXPERIENCE
+==================================================
+
+The logged-in homepage should primarily be an artwork discovery feed.
+
+Do NOT make the logged-in experience look like a SaaS dashboard.
+
+Users came to look at art.
+
+Create a Pinterest-like masonry layout, but give it a unique visual treatment.
+
+Artwork cards should prioritize imagery.
+
+On hover desktop, reveal subtle actions such as:
+- Save
+- Like
+- View artist
+- More
+- Find Similar
+
+Do not permanently cover artwork with excessive interface elements.
+
+The feed should support infinite scrolling or pagination.
+
+Sections/filters can include:
+
+For You
+Following
+Trending
+New
+Photography
+Illustration
+Tattoo
+Painting
+Digital
+3D
+Design
+Abstract
+Portrait
+Concept Art
+
+Include a search bar prominently in the navigation.
+
+==================================================
+EXPLORE PAGE
+==================================================
+
+Create /explore.
+
+Include curated discovery areas such as:
+
+Trending Today
+
+Emerging Artists
+
+Popular Styles
+
+Recently Added
+
+Featured Creators
+
+Shop Art
+
+Tattoo Inspiration
+
+Editors' Picks
+
+Under-the-Radar
+
+Popular Near You if location data is available
+
+Do not make all of these identical horizontal carousels.
+
+Vary the editorial layouts.
+
+==================================================
+SEARCH
+==================================================
+
+Create powerful platform-wide search.
+
+Users should be able to search:
+- artists
+- artwork
+- styles
+- tags
+- subjects
+- collections
+- categories
+
+Search results should provide filters for:
+- artwork
+- artists
+- for sale
+- commissions open
+- price
+- category
+- medium
+- style
+- orientation
+- color
+- newest
+- popular
+- relevance
+
+Include search suggestions as the user types.
+
+Show recent searches.
+
+Allow clearing search history.
+
+==================================================
+AI / VISUAL STYLE DISCOVERY
+==================================================
+
+This is one of the most important features.
+
+Create a feature called something more human and elegant than "AI Search."
+
+Examples:
+Visual Search
+Find Similar
+Style Match
+
+Users should be able to:
+
+1. Upload an image.
+2. Choose an artwork already on the platform.
+3. Click "Find Similar" on any artwork.
+
+The system should return visually or stylistically similar artwork and artists.
+
+Architect this feature so an image embedding provider can be connected.
+
+Possible architecture:
+- OpenAI vision/embeddings where suitable
+- CLIP/OpenCLIP embedding service
+- external image-vector service
+- Supabase pgvector
+
+Store visual embeddings associated with artwork records.
+
+Similarity results should rank by vector similarity.
+
+If full image embedding cannot operate without external keys, create a clean service abstraction and explain exactly where the API key/model must be connected.
+
+Do NOT fake similarity scores.
+
+The development version can fall back to tag/style/category similarity when the embedding provider is unavailable, but clearly structure the code so true image embeddings can replace the fallback.
+
+Users should also be able to refine results:
+
+"More like the colors"
+
+"More like the style"
+
+"More like the subject"
+
+"More from this artist"
+
+Avoid constantly mentioning AI in the UI.
+
+The magic should feel embedded in the product.
+
+==================================================
+ARTWORK UPLOAD
+==================================================
+
+Create an excellent artwork uploader.
+
+Support:
+- drag and drop
+- image selection
+- multiple images if artwork has detail shots
+- upload progress
+- preview
+- reordering
+- alt text
+
+Supported common image formats:
+JPG
+PNG
+WEBP
+
+Add reasonable upload size restrictions.
+
+Artist enters:
+
+Title
+
+Description
+
+Category
+
+Medium
+
+Style
+
+Subject
+
+Tags
+
+Year created
+
+Original dimensions
+
+Whether AI tools were involved in creating the artwork
+
+Whether the work is:
+- showcase only
+- available for sale
+- available as print
+- available digitally
+- commission example
+
+Price if applicable.
+
+Allow artwork to be:
+- public
+- unlisted
+- private
+
+Automatically generate optimized image sizes/thumbnails instead of serving gigantic original uploads throughout the site.
+
+Protect originals where reasonable.
+
+==================================================
+ARTWORK DETAIL PAGE
+==================================================
+
+Each artwork gets its own page.
+
+Example:
+
+/art/[slug]
+
+Display:
+
+large artwork image
+
+additional images
+
+title
+
+artist
+
+artist avatar
+
+follow button
+
+description
+
+medium
+
+style
+
+dimensions
+
+year
+
+tags
+
+likes
+
+saves
+
+views
+
+sale status
+
+price
+
+commission availability
+
+comments
+
+share
+
+report
+
+Find Similar button
+
+More from this artist
+
+Similar artwork
+
+Artwork you may also like
+
+Keep this page visually focused on the artwork instead of putting everything in cards.
+
+If artwork is for sale, make the purchasing action very clear.
+
+==================================================
+ARTIST PROFILES
+==================================================
+
+Create beautiful public artist profiles.
+
+Example:
+
+/@username
+
+Profile should contain:
+
+cover area
+
+profile image
+
+display name
+
+username
+
+verified badge architecture if later enabled
+
+bio
+
+location
+
+website/socials
+
+followers
+
+following
+
+total artwork
+
+follow button
+
+message button
+
+commission button if commissions are open
+
+Tabs:
+
+Portfolio
+Shop
+Collections
+About
+
+Artist portfolio should support:
+- grid
+- optional pinned work
+- featured piece
+- custom ordering
+
+Artist can select their specialties and styles.
+
+Example:
+
+Tattoo Artist
+Illustrator
+Painter
+Photographer
+Concept Artist
+
+==================================================
+FOLLOW SYSTEM
+==================================================
+
+Users should be able to follow artists.
+
+Implement:
+- follow
+- unfollow
+- followers
+- following
+- follower counts
+
+Create a Following feed showing new uploads from followed creators.
+
+==================================================
+LIKES
+==================================================
+
+Users can like artwork.
+
+Implement database-backed likes.
+
+Show like counts.
+
+Allow users to view artwork they have liked from their profile/account area if desired.
+
+==================================================
+SAVE / COLLECTION SYSTEM
+==================================================
+
+Saving artwork should be a major feature.
+
+Users should be able to create collections/boards.
+
+Examples:
+
+Tattoo Ideas
+
+Bedroom Art
+
+Logo Inspiration
+
+Dark Illustrations
+
+Future Tattoos
+
+Photography Ideas
+
+Users can:
+- create collections
+- rename collections
+- delete collections
+- add artwork
+- remove artwork
+- reorder artwork
+- make collections public
+- make collections private
+- share public collections
+
+Artwork cards should have a fast Save interaction.
+
+If the user has multiple collections, display a small polished collection picker.
+
+This functionality should feel fast like Pinterest.
+
+==================================================
+TATTOO INSPIRATION MODE
+==================================================
+
+Create a dedicated /tattoo section.
+
+This is still part of the same platform, not a separate website.
+
+Allow browsing tattoo styles such as:
+
+Traditional
+Neo-Traditional
+Fine Line
+Realism
+Blackwork
+Japanese
+Geometric
+Minimalist
+Illustrative
+Tribal
+Lettering
+Surrealism
+Patchwork
+
+Users can save tattoo ideas into boards.
+
+Include a disclaimer that uploaded designs remain the intellectual property of their creator unless licensing rights explicitly allow otherwise.
+
+Make it easy to find the original artist.
+
+==================================================
+RECOMMENDATION ENGINE
+==================================================
+
+Create a personalized "For You" feed.
+
+Recommendation signals can include:
+
+art liked
+
+art saved
+
+artists followed
+
+searches
+
+categories viewed
+
+style tags
+
+time spent/view events where privacy-compatible
+
+purchases
+
+collections
+
+Find Similar interactions
+
+Build the recommendation architecture so it can become smarter over time.
+
+Initial implementation can use weighted scoring based on shared tags, styles, categories, and followed artists.
+
+Do not use fake personalization.
+
+==================================================
+MARKETPLACE
+==================================================
+
+Artists should be able to sell work.
+
+Support product types:
+
+Original Artwork
+
+Print
+
+Digital Download
+
+License
+
+Custom Commission
+
+Artwork sale page should support:
+
+price
+
+quantity if applicable
+
+shipping requirement
+
+digital delivery
+
+description
+
+seller information
+
+refund policy
+
+licensing terms where appropriate
+
+Buy Now
+
+Add to Cart
+
+==================================================
+SHOPPING CART
+==================================================
+
+Create a real shopping cart.
+
+Support:
+- add
+- remove
+- quantity
+- subtotal
+- platform fee where applicable
+- shipping if required
+- total
+
+Persist carts for authenticated users.
+
+Do not make users re-add everything after refresh.
+
+==================================================
+CHECKOUT
+==================================================
+
+Use Stripe.
+
+At checkout allow users to pay with:
+
+1. Stripe-supported external payment methods
+2. Their platform wallet balance
+3. Wallet balance + Stripe for the remaining amount if practical
+
+Create actual order records after verified successful payment.
+
+Never trust a client-side success callback alone.
+
+Use Stripe webhook verification.
+
+Orders should have statuses such as:
+
+pending
+paid
+processing
+shipped
+completed
+cancelled
+refunded
+disputed
+
+==================================================
+PLATFORM WALLET
+==================================================
+
+This feature is REQUIRED and must actually work.
+
+Create a Wallet section inside the user's account.
+
+Example:
+
+/settings/wallet
+or
+/wallet
+
+Display:
+
+Available Balance
+
+Pending Balance
+
+Lifetime Added
+
+Lifetime Spent
+
+Creator Earnings if Creator Mode is enabled
+
+Transaction History
+
+Add Money button
+
+Withdraw button for eligible creator earnings
+
+==================================================
+ADD MONEY
+==================================================
+
+Create a functional "Add Money" feature.
+
+User selects or enters an amount.
+
+Quick-select amounts:
+
+$10
+$25
+$50
+$100
+$250
+
+Plus Custom Amount.
+
+Set sensible minimum and maximum deposit restrictions.
+
+Use Stripe to process deposits.
+
+CRITICAL:
+
+Do not increase a wallet balance simply because the browser redirects back from Stripe.
+
+Use a verified Stripe webhook.
+
+Once Stripe confirms payment, insert an immutable wallet ledger entry.
+
+Example ledger:
+
+transaction_id
+user_id
+type
+amount
+currency
+status
+stripe_payment_id
+order_id
+description
+created_at
+
+Transaction types might include:
+
+deposit
+purchase
+sale
+commission_payment
+commission_earning
+refund
+promotion
+withdrawal
+platform_fee
+
+Calculate account balance from secure ledger transactions or maintain a balance with transactional database logic.
+
+Do not allow client-side modification of balances.
+
+Use server-side authorization.
+
+All wallet values should be stored as integer cents rather than floating point dollar values.
+
+==================================================
+WITHDRAWALS / CREATOR PAYOUTS
+==================================================
+
+Creators should eventually be able to withdraw marketplace earnings.
+
+Architect this using Stripe Connect.
+
+Separate:
+- deposited user wallet funds
+- creator earnings
+- pending earnings
+- withdrawable earnings
+
+Do not imply that ordinary wallet deposits can necessarily be withdrawn as cash.
+
+Implement payout onboarding if Stripe Connect credentials are configured.
+
+==================================================
+COMMISSIONS
+==================================================
+
+Artists can toggle:
+
+Commissions Open
+
+Commissions Closed
+
+When open, artists can create commission offerings.
+
+Each offering can contain:
+
+Title
+
+Example artwork
+
+Description
+
+Starting Price
+
+Estimated turnaround
+
+Number of revisions
+
+Deliverables
+
+Commercial-use availability
+
+Additional options
+
+Buyers click:
+
+Request Commission
+
+Commission request should ask:
+
+What are you looking for?
+
+Reference images
+
+Desired style
+
+Dimensions
+
+Deadline
+
+Usage/purpose
+
+Budget
+
+Additional information
+
+Allow attachments.
+
+The artist can:
+
+Accept
+
+Decline
+
+Counteroffer
+
+Ask a question
+
+Once accepted, buyer can fund the commission.
+
+Track commission status:
+
+Request Sent
+Discussing
+Awaiting Payment
+In Progress
+Preview Sent
+Revision Requested
+Completed
+Cancelled
+Disputed
+
+Create a message thread attached to the commission.
+
+==================================================
+MESSAGING
+==================================================
+
+Create private messaging.
+
+Users should be able to message artists.
+
+Support:
+
+conversation list
+
+unread state
+
+timestamps
+
+image/reference attachments
+
+commission-linked conversations
+
+block
+
+report
+
+Basic real-time messaging should use Supabase realtime if practical.
+
+Prevent spam with reasonable limits.
+
+==================================================
+CREATOR STORE
+==================================================
+
+Artist profile Shop tab should show everything that artist currently sells.
+
+Users can filter:
+
+Originals
+
+Prints
+
+Digital
+
+Commissions
+
+==================================================
+PLATFORM REVENUE / COMMISSION
+==================================================
+
+The platform should make money by taking a percentage from transactions.
+
+Make this configurable.
+
+Example default:
+
+10% platform fee
+
+Put this in one central configuration rather than hard-coding it throughout the application.
+
+When an artist sells something, automatically calculate:
+
+sale amount
+
+platform fee
+
+creator amount
+
+Stripe/payment processing considerations
+
+Record the values in the order/ledger database.
+
+Make the fee visible before creators publish a listing and inside transaction details.
+
+==================================================
+PAID SHOWCASE / PROMOTION
+==================================================
+
+Create a promotional feature for artists.
+
+Artists can pay to increase exposure of selected work.
+
+Call it something tasteful like:
+
+Showcase
+
+Featured Placement
+
+Promote
+
+Avoid calling everything an "ad."
+
+Artist selects artwork and chooses a promotion option.
+
+Examples:
+
+24 Hours
+3 Days
+7 Days
+
+The cost should be configurable.
+
+Promotion can be purchased using:
+- wallet balance
+- Stripe
+
+Promoted work may appear in:
+
+Explore
+relevant category results
+Featured artwork area
+
+Clearly mark promoted artwork subtly as "Promoted" or "Featured."
+
+Do NOT make the platform pay-to-win.
+
+Organic discovery must remain important.
+
+Create:
+- campaign start date
+- campaign end date
+- status
+- impressions
+- artwork clicks
+- profile visits
+- saves
+- follows attributed if practical
+
+==================================================
+CREATOR ANALYTICS
+==================================================
+
+Creator Mode should have a creator studio.
+
+Example:
+
+/studio
+
+This is one area where dashboard-style UI is appropriate.
+
+Include:
+
+Portfolio Views
+
+Artwork Views
+
+Profile Visits
+
+Likes
+
+Saves
+
+Followers
+
+Store Revenue
+
+Orders
+
+Commission Revenue
+
+Top Artwork
+
+Top Search Terms if available
+
+Traffic Sources
+
+Promoted Artwork Performance
+
+Use real database records rather than fake demo numbers.
+
+Show empty states when there is no data.
+
+==================================================
+NOTIFICATIONS
+==================================================
+
+Create a notification system.
+
+Events may include:
+
+new follower
+
+artwork liked
+
+artwork saved
+
+comment
+
+commission request
+
+commission update
+
+new message
+
+sale
+
+order update
+
+payment
+
+wallet deposit
+
+creator payout
+
+promotion ending
+
+Use a notification dropdown plus full /notifications page.
+
+Users can mark notifications read.
+
+==================================================
+COMMENTS
+==================================================
+
+Allow comments on artwork.
+
+Artists can disable comments per artwork.
+
+Support:
+
+comment
+
+reply
+
+delete own comment
+
+creator delete/moderate comment on their work
+
+report comment
+
+like comment if practical
+
+Do not turn this into a full social-media debate platform.
+
+Keep discussion artwork-centered.
+
+==================================================
+REPORTING / MODERATION
+==================================================
+
+Users should be able to report:
+
+artwork
+
+users
+
+comments
+
+messages where appropriate
+
+Reasons:
+
+Copyright infringement
+
+Stolen artwork
+
+Spam
+
+Harassment
+
+Explicit content
+
+Illegal content
+
+Impersonation
+
+Other
+
+Create database architecture for moderation.
+
+Create an admin panel protected by an admin role.
+
+Admin functionality should include:
+
+Users
+
+Artwork
+
+Reports
+
+Transactions
+
+Orders
+
+Commissions
+
+Promotions
+
+Platform configuration
+
+Categories
+
+Tags
+
+Moderation actions
+
+Never allow a normal user to reach admin data by manually changing their URL.
+
+==================================================
+COPYRIGHT / ARTIST PROTECTION
+==================================================
+
+This platform hosts creative intellectual property, so artist protection matters.
+
+Allow creators to specify usage rights:
+
+All Rights Reserved
+
+Personal Inspiration Only
+
+Commercial License Available
+
+Digital License
+
+Custom License
+
+Do not imply that saving an image gives reproduction rights.
+
+Display attribution prominently.
+
+Include report/copyright tools.
+
+Create sensible Terms placeholder pages.
+
+==================================================
+CONTENT SAFETY
+==================================================
+
+Create fields and infrastructure for moderation.
+
+Allow an artwork to be flagged as mature content.
+
+Hide mature artwork behind a preference/blur where required.
+
+Block clearly prohibited content according to platform policy.
+
+==================================================
+SHARE SYSTEM
+==================================================
+
+Artwork and profiles should be shareable.
+
+Include:
+
+Copy Link
+
+Share to Pinterest
+
+Share to X
+
+Share to Facebook
+
+Share via native mobile share API where available
+
+Public collections should also be shareable.
+
+==================================================
+PROFILE SETTINGS
+==================================================
+
+Create settings areas for:
+
+Account
+Profile
+Creator Profile
+Notifications
+Privacy
+Wallet
+Payments
+Payouts
+Blocked Users
+Connected Accounts
+Security
+Delete Account
+
+Do not cram all settings into one gigantic page.
+
+==================================================
+NAVIGATION
+==================================================
+
+Desktop navigation could include:
+
+Logo
+
+Home
+
+Explore
+
+Shop
+
+Tattoo
+
+search bar
+
+Upload button
+
+Messages
+
+Notifications
+
+Profile menu
+
+For artists, Studio can appear in the profile dropdown.
+
+On mobile, design an appropriate navigation solution.
+
+A native-feeling bottom navigation is acceptable for major destinations.
+
+Do not simply squeeze the desktop header into mobile.
+
+==================================================
+LANDING PAGE FOR LOGGED-OUT USERS
+==================================================
+
+Create a compelling logged-out homepage.
+
+Do NOT use a generic startup hero with an abstract gradient.
+
+Use real-looking seeded artwork placeholders.
+
+Hero should immediately communicate:
+
+Discover art you actually like.
+
+Find artists who create in the style you're searching for.
+
+Save inspiration, commission artists, or buy their work.
+
+Include an interactive-looking art discovery grid.
+
+Introduce Visual Search visually.
+
+Show actual product behavior.
+
+Sections can introduce:
+
+Discover
+Find Similar
+Save Collections
+Commission Artists
+Buy Art
+Create & Sell
+
+Keep copy short and confident.
+
+CTA examples:
+
+Explore Art
+
+Join as an Artist
+
+Create Account
+
+==================================================
+SEED DATA
+==================================================
+
+Create realistic development seed data.
+
+Use a diverse range of styles and art categories.
+
+Do NOT use copyrighted celebrity artwork or pretend real artists use the platform.
+
+Create fictional users.
+
+Create enough data to make:
+
+discovery
+
+search
+
+profiles
+
+collections
+
+marketplace
+
+recommendations
+
+look realistically populated during development.
+
+Use images legally permitted for development or placeholder images from an appropriate source.
+
+Do not permanently hotlink unreliable images.
+
+==================================================
+DATABASE ARCHITECTURE
+==================================================
+
+Create a robust database schema.
+
+Likely tables include:
+
+profiles
+
+user_preferences
+
+artist_profiles
+
+artworks
+
+artwork_images
+
+artwork_tags
+
+tags
+
+categories
+
+follows
+
+likes
+
+collections
+
+collection_items
+
+comments
+
+comment_likes
+
+products
+
+product_variants
+
+carts
+
+cart_items
+
+orders
+
+order_items
+
+payments
+
+wallet_transactions
+
+commission_services
+
+commission_requests
+
+commission_messages
+
+conversations
+
+conversation_members
+
+messages
+
+notifications
+
+promotions
+
+promotion_metrics
+
+reports
+
+blocks
+
+search_history
+
+artwork_views
+
+profile_views
+
+recommendation_events
+
+visual_embeddings
+
+payout_accounts
+
+payouts
+
+admin_actions
+
+Do not blindly use this list if a cleaner relational model exists.
+
+Use proper foreign keys.
+
+Use indexes.
+
+Use cascading behavior thoughtfully.
+
+Use created_at and updated_at timestamps where appropriate.
+
+Use UUIDs where practical.
+
+==================================================
+SECURITY
+==================================================
+
+Security is extremely important.
+
+Implement Supabase Row Level Security.
+
+Users must only be able to modify:
+
+their profile
+
+their artwork
+
+their collections
+
+their messages where authorized
+
+their listings
+
+their commissions where authorized
+
+their settings
+
+Never trust user_id supplied from the frontend when server authentication can determine it.
+
+Wallet balances and transactions must NOT be client-editable.
+
+Order status/payment status changes must be protected.
+
+Admin routes must use role verification.
+
+Sanitize user-generated content.
+
+Validate uploaded files.
+
+Rate limit sensitive actions.
+
+Never expose secret environment variables in the frontend.
+
+==================================================
+PERFORMANCE
+==================================================
+
+Because this website is image-heavy:
+
+Use:
+
+Next.js image optimization
+
+responsive image sizes
+
+lazy loading
+
+blur/placeholder loading
+
+pagination/infinite loading
+
+thumbnail variants
+
+CDN-friendly storage
+
+proper database indexes
+
+Do not load full-resolution images unnecessarily.
+
+Prevent layout shift as imagery loads.
+
+==================================================
+SEO
+==================================================
+
+Public artwork and artist pages should be indexable.
+
+Implement:
+
+dynamic metadata
+
+Open Graph images
+
+Twitter/social metadata
+
+canonical URLs
+
+sitemap
+
+robots.txt
+
+structured data where relevant
+
+artist/profile metadata
+
+artwork metadata
+
+product schema for purchasable artwork
+
+meaningful page titles
+
+descriptions
+
+clean URLs
+
+Do not keyword-stuff.
+
+Private profiles and private collections should not be indexed.
+
+==================================================
+ACCESSIBILITY
+==================================================
+
+Use semantic HTML.
+
+Provide:
+
+keyboard navigation
+
+visible focus states
+
+image alt text
+
+screen-reader labels
+
+sufficient contrast
+
+accessible form errors
+
+accessible modals
+
+Do not rely solely on color to communicate state.
+
+==================================================
+ANIMATIONS
+==================================================
+
+Use restrained transitions.
+
+Good examples:
+
+image hover
+
+save animation
+
+smooth collection picker
+
+modal transitions
+
+navigation transitions
+
+loading skeletons
+
+follow state change
+
+Avoid excessive page entrance animations.
+
+Artwork should remain the focus.
+
+==================================================
+LOADING / EMPTY / ERROR STATES
+==================================================
+
+Every major page needs intentional states.
+
+Examples:
+
+No saved collections yet
+
+No artwork uploaded
+
+No commissions
+
+No messages
+
+No search results
+
+No transactions
+
+No orders
+
+Connection failure
+
+Upload failure
+
+Payment cancelled
+
+Payment processing
+
+Payment success
+
+Do not leave blank pages.
+
+==================================================
+FUNCTIONAL TESTING REQUIREMENT
+==================================================
+
+Before considering the project complete, test the entire user journey.
+
+TEST USER FLOW:
+
+Create account
+
+Complete onboarding
+
+Log out
+
+Log back in
+
+Edit profile
+
+Enable Creator Mode
+
+Upload artwork
+
+Publish artwork
+
+Find artwork from another account
+
+Like artwork
+
+Save it to a collection
+
+Follow artist
+
+Use search
+
+Open Find Similar
+
+Add a marketplace listing
+
+Add item to cart
+
+Complete Stripe test checkout
+
+Verify order is created through webhook
+
+Add money to wallet using Stripe test payment
+
+Verify wallet balance only changes after verified Stripe event
+
+Purchase using wallet balance if enough is available
+
+Request an artist commission
+
+Accept commission
+
+Message between users
+
+Launch a paid showcase campaign in test mode
+
+Verify notifications
+
+Verify creator analytics populate from real interactions
+
+Verify mobile layouts
+
+Verify protected pages cannot be accessed anonymously
+
+Verify users cannot alter another user's data.
+
+==================================================
+CODE QUALITY
+==================================================
+
+Use clean reusable components.
+
+Do not put the entire application into one component.
+
+Use sensible folders.
+
+Separate:
+
+UI
+business logic
+database logic
+payment logic
+authentication
+storage
+recommendations
+visual search
+utilities
+
+Use TypeScript types.
+
+Avoid duplicated code.
+
+Include comments only where genuinely helpful.
+
+Create a README containing:
+
+local setup
+
+Supabase setup
+
+database migrations
+
+Stripe setup
+
+Stripe webhook setup
+
+Google OAuth setup if used
+
+environment variables
+
+development commands
+
+production deployment
+
+Vercel deployment
+
+==================================================
+IMPORTANT PRODUCT PHILOSOPHY
+==================================================
+
+The website should feel like an art platform FIRST.
+
+It should not feel like:
+
+an AI company
+
+a cryptocurrency wallet
+
+a banking application
+
+a generic ecommerce template
+
+a generic social network
+
+a generic SaaS dashboard
+
+Users should open it because browsing the artwork itself is enjoyable.
+
+AI-powered similarity should be an impressive tool hidden naturally inside the discovery experience, not the entire identity.
+
+Marketplace features should help artists monetize their work without making every image feel like an advertisement.
+
+Saving and discovering artwork should remain useful even for someone who never spends money.
+
+Artists should have enough functionality to genuinely use the platform as their portfolio, storefront, commission page, and discovery channel.
+
+==================================================
+FINAL REQUIREMENT
+==================================================
+
+Build the application, not merely a mockup.
+
+Every visible button should either:
+
+work,
+
+have an implemented underlying action,
+
+or be intentionally disabled with a legitimate explanation.
+
+Do not populate the UI with fake numbers or claim functionality works when it doesn't.
+
+Prioritize this order:
+
+1. Excellent art-first UI/UX
+2. Functional authentication
+3. Artwork uploading and profiles
+4. Discovery/search/collections
+5. Functional marketplace
+6. Secure wallet/add-money system
+7. Commissions
+8. Messaging
+9. Visual similarity
+10. Recommendations
+11. Promotions
+12. Creator analytics
+13. Admin/moderation
+
+Make the initial implementation cohesive and production-minded rather than creating dozens of unfinished features.
+
+At the end, provide:
+
+- complete source code
+- database migrations/schema
+- seed script
+- .env.example
+- README
+- Stripe webhook implementation
+- Supabase RLS policies
+- deployment instructions
+- any API configuration still required
+- GitHub-ready project structure
+- confirmation of which functions are fully operational
+- clear identification of anything requiring third-party API credentials
+
+The final website should feel credible enough that artists could actually create accounts and begin using it.
