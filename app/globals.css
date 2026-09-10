@@ -2486,3 +2486,189 @@ html[data-theme="light"] .exact-ai button{
     height:165px!important;
   }
 }
+
+
+/* =========================================================
+   AUREVEIL V4 — restore animated Angel world
+   ========================================================= */
+
+/* Always paint the page to the full viewport so Angel mode never ends in a hard vertical strip. */
+html,
+body{
+  width:100%!important;
+  min-width:100%!important;
+  max-width:none!important;
+  overflow-x:clip!important;
+}
+.exact-home{
+  width:100%!important;
+  max-width:none!important;
+  min-width:100%!important;
+  isolation:isolate;
+}
+
+/* Demon remains unchanged. Angel gets its own full-viewport animated sky. */
+.angel-atmosphere{
+  display:none;
+}
+html[data-theme="light"] body,
+html[data-theme="light"] .exact-home{
+  background:#fff9fc!important;
+}
+html[data-theme="light"] .exact-home{
+  position:relative!important;
+  overflow:hidden!important;
+}
+html[data-theme="light"] .exact-home::before{
+  content:""!important;
+  position:absolute!important;
+  inset:-12% -8%!important;
+  z-index:-4!important;
+  pointer-events:none!important;
+  opacity:1!important;
+  background:
+    radial-gradient(circle at 10% 15%,rgba(255,188,221,.48) 0 16%,transparent 38%),
+    radial-gradient(circle at 82% 11%,rgba(163,220,255,.50) 0 18%,transparent 40%),
+    radial-gradient(circle at 53% 44%,rgba(203,187,255,.34) 0 18%,transparent 42%),
+    radial-gradient(circle at 16% 78%,rgba(185,239,217,.30) 0 17%,transparent 42%),
+    radial-gradient(circle at 86% 82%,rgba(255,221,178,.32) 0 17%,transparent 43%),
+    linear-gradient(125deg,#fff8fc 0%,#f4f6ff 24%,#eefaff 45%,#fff8f1 68%,#fbf3ff 100%)!important;
+  background-size:145% 145%!important;
+  animation:avAngelPastelShift 24s ease-in-out infinite alternate!important;
+  filter:saturate(108%)!important;
+}
+html[data-theme="light"] .exact-home::after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:-3!important;
+  pointer-events:none!important;
+  opacity:.22!important;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E")!important;
+}
+@keyframes avAngelPastelShift{
+  0%{background-position:0% 20%;transform:scale(1)}
+  33%{background-position:55% 0%;transform:scale(1.035)}
+  66%{background-position:100% 72%;transform:scale(1.02)}
+  100%{background-position:18% 100%;transform:scale(1.045)}
+}
+
+html[data-theme="light"] .angel-atmosphere{
+  display:block;
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  overflow:hidden;
+  pointer-events:none;
+}
+html[data-theme="light"] .angel-cloud{
+  position:absolute;
+  border-radius:999px;
+  background:rgba(255,255,255,.64);
+  box-shadow:0 18px 48px rgba(157,176,211,.12);
+  filter:blur(.15px);
+  animation:avCloudFloat 18s ease-in-out infinite alternate;
+}
+html[data-theme="light"] .angel-cloud::before,
+html[data-theme="light"] .angel-cloud::after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  background:inherit;
+}
+html[data-theme="light"] .angel-cloud-1{width:270px;height:70px;left:-55px;top:120px;opacity:.72}
+html[data-theme="light"] .angel-cloud-1::before{width:105px;height:105px;left:45px;top:-48px}
+html[data-theme="light"] .angel-cloud-1::after{width:135px;height:135px;right:24px;top:-70px}
+html[data-theme="light"] .angel-cloud-2{width:335px;height:82px;right:-95px;top:275px;opacity:.58;animation-delay:-7s}
+html[data-theme="light"] .angel-cloud-2::before{width:126px;height:126px;left:62px;top:-59px}
+html[data-theme="light"] .angel-cloud-2::after{width:150px;height:150px;right:50px;top:-77px}
+html[data-theme="light"] .angel-cloud-3{width:245px;height:62px;left:34%;top:655px;opacity:.42;animation-delay:-12s}
+html[data-theme="light"] .angel-cloud-3::before{width:90px;height:90px;left:38px;top:-42px}
+html[data-theme="light"] .angel-cloud-3::after{width:114px;height:114px;right:30px;top:-55px}
+@keyframes avCloudFloat{
+  from{transform:translate3d(-8px,0,0)}
+  to{transform:translate3d(34px,-14px,0)}
+}
+html[data-theme="light"] .angel-spark{
+  position:absolute;
+  font-style:normal;
+  font-size:22px;
+  opacity:.48;
+  animation:avSparkFloat 6s ease-in-out infinite alternate;
+}
+html[data-theme="light"] .angel-spark-1{left:21%;top:110px;color:#e987b8}
+html[data-theme="light"] .angel-spark-2{right:23%;top:185px;color:#80bde4;animation-delay:-2s}
+html[data-theme="light"] .angel-spark-3{left:49%;top:510px;color:#a68bdf;animation-delay:-4s}
+@keyframes avSparkFloat{to{transform:translateY(-12px) rotate(8deg);opacity:.78}}
+
+/* Restore the calmer Angel collage treatment from the earlier preview. */
+html[data-theme="light"] .exact-collage{
+  filter:drop-shadow(0 28px 48px rgba(122,108,151,.13))!important;
+}
+html[data-theme="light"] .exact-card{
+  border:6px solid rgba(255,255,255,.88)!important;
+  border-radius:18px!important;
+  background:#fff!important;
+  box-shadow:0 24px 60px rgba(126,107,150,.16)!important;
+}
+html[data-theme="light"] .exact-card img{
+  filter:saturate(.88) brightness(1.035)!important;
+}
+html[data-theme="light"] .exact-note{
+  color:#86728e!important;
+  text-shadow:0 2px 18px rgba(255,255,255,.85)!important;
+}
+html[data-theme="light"] .note-right{color:#7998c9!important}
+
+/* AureVeil mark needs contrast on the pale Angel header. */
+.exact-aureveil-mark{
+  --av-angel-1:#ffffff;
+  --av-angel-2:#e9e7e4;
+  --av-angel-3:#bfc5cf;
+  --av-halo:#fff3df;
+  --av-angel-detail:rgba(255,255,255,.58);
+  --av-star:#fffaf1;
+  --av-star-line:#ffffff;
+}
+html[data-theme="light"] .exact-aureveil-mark{
+  --av-angel-1:#28212c;
+  --av-angel-2:#51455a;
+  --av-angel-3:#8b7794;
+  --av-halo:#b88b45;
+  --av-angel-detail:rgba(42,33,47,.58);
+  --av-star:#4f4057;
+  --av-star-line:#4f4057;
+  filter:drop-shadow(0 3px 10px rgba(90,68,102,.18))!important;
+}
+html[data-theme="light"] .exact-brand{
+  color:#302735!important;
+}
+html[data-theme="light"] .exact-wordmark{
+  color:#302735!important;
+  text-shadow:none!important;
+}
+html[data-theme="light"] .exact-wordmark span{
+  color:#c43f55!important;
+}
+html[data-theme="light"] .exact-brand small{
+  color:#66586c!important;
+}
+
+/* Keep the light header airy without washing the logo away. */
+html[data-theme="light"] .exact-header{
+  background:rgba(255,250,253,.74)!important;
+  box-shadow:0 9px 32px rgba(103,82,116,.06)!important;
+}
+
+/* Mobile/tablet: clouds stay atmospheric and page still fills viewport. */
+@media(max-width:900px){
+  html[data-theme="light"] .angel-cloud-1{left:-120px;top:150px;transform:scale(.8)}
+  html[data-theme="light"] .angel-cloud-2{right:-165px;top:390px;transform:scale(.74)}
+  html[data-theme="light"] .angel-cloud-3{left:18%;top:820px;transform:scale(.72)}
+  html[data-theme="light"] .exact-home::before{inset:-8% -30%!important}
+}
+@media(prefers-reduced-motion:reduce){
+  html[data-theme="light"] .exact-home::before,
+  html[data-theme="light"] .angel-cloud,
+  html[data-theme="light"] .angel-spark{animation:none!important}
+}

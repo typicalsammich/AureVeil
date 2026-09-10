@@ -25,6 +25,7 @@ const featured = [
 
 export default function Home(){
   return <div className="exact-home">
+    <div className="angel-atmosphere" aria-hidden="true"><span className="angel-cloud angel-cloud-1"/><span className="angel-cloud angel-cloud-2"/><span className="angel-cloud angel-cloud-3"/><i className="angel-spark angel-spark-1">✦</i><i className="angel-spark angel-spark-2">♡</i><i className="angel-spark angel-spark-3">✧</i></div>
     <section className="exact-hero">
       <div className="exact-copy">
         <div className="exact-eyebrow">MORE THAN ART <i/></div>
@@ -44,15 +45,15 @@ export default function Home(){
         <span className="exact-note note-left">GOOD<br/>ART<br/>BETTER<br/>PEOPLE</span>
         <Link href="/art/quiet-current" className="exact-card card-left">
           <img className="mode-image mode-image-dark" src="/demo/hero-left.jpg" alt="Bold portrait artwork"/>
-          <img className="mode-image mode-image-light" src="/demo/art-3.jpg" alt="Dreamy pastel landscape artwork"/>
+          <img className="mode-image mode-image-light" src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=900&q=85" alt="Soft floral artwork"/>
         </Link>
         <Link href="/art/soft-machines" className="exact-card card-center">
           <img className="mode-image mode-image-dark" src="/demo/hero-center.jpg" alt="Colorful portrait artwork"/>
-          <img className="mode-image mode-image-light" src="/demo/art-1.jpg" alt="Soft expressive artwork"/>
+          <img className="mode-image mode-image-light" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85" alt="Dreamy peaceful landscape artwork"/>
         </Link>
         <Link href="/art/signal-bloom" className="exact-card card-right">
           <img className="mode-image mode-image-dark" src="/demo/hero-right.jpg" alt="Colorful sculpture artwork"/>
-          <img className="mode-image mode-image-light" src="/demo/path-collector.jpg" alt="Calm collector-focused artwork"/>
+          <img className="mode-image mode-image-light" src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=900&q=85" alt="Soft sky and cloud artwork"/>
         </Link>
         <span className="exact-note note-right"><b>⌄</b> ART<br/>CHANGES<br/>EVERYTHING</span>
         <span className="exact-note note-far">SAME<br/>HUMAN<br/>DIFFERENT<br/>CANVAS</span>
